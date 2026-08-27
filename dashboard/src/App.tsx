@@ -12,7 +12,6 @@ function App() {
   const [api, setApi] = useState<GitHubAPI | null>(null);
   const [user, setUser] = useState<GitHubUser | null>(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string>('');
 
   useEffect(() => {
     const initAuth = async () => {
@@ -27,7 +26,7 @@ function App() {
         // Verify org membership
         const isMember = await githubApi.verifyOrgMembership();
         if (!isMember) {
-          setError('You must be a member of pbs-digital organization');
+          console.error('You must be a member of pbs-digital organization');
           handleLogout();
           return;
         }
@@ -40,7 +39,7 @@ function App() {
         setLoading(false);
       } catch (err) {
         console.error('Auth error:', err);
-        setError('Invalid token or authentication failed');
+        console.error('Invalid token or authentication failed');
         handleLogout();
       }
     };
@@ -50,7 +49,6 @@ function App() {
 
   const handleLogin = (newToken: string) => {
     setToken(newToken);
-    setError('');
   };
 
   const handleLogout = () => {

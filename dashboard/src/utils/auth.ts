@@ -27,7 +27,7 @@ export const clearToken = (): void => {
   localStorage.removeItem('github_token');
 };
 
-export const exchangeCodeForToken = async (code: string): Promise<string> => {
+export const exchangeCodeForToken = async (): Promise<string> => {
   // In production, this should call your backend proxy to exchange the code
   // GitHub doesn't allow CORS for the token exchange endpoint
   // For now, we'll use the GitHub Device Flow or ask users to generate a PAT
