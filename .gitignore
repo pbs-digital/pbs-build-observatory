@@ -1,0 +1,14 @@
+# Dashboard build artifacts
+dashboard/node_modules/
+dashboard/dist/
+dashboard/.env.local
+
+# OS files
+.DS_Store
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
